@@ -29,6 +29,41 @@
 
   </mat-form-field>
 
-  {{ selectedHero | json }}
+  <mat-divider class="mb-2"></mat-divider>
 
+  <div class="grid" *ngIf="selectedHero">
+
+
+    <div class="col-12 sm:col-4 mr-2">
+      <mat-card>
+
+        <mat-card-header>
+          <mat-card-title> {{ selectedHero?.alter_ego }} </mat-card-title>
+          <mat-card-subtitle> {{ selectedHero?.superhero }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-divider class="mb-2"></mat-divider>
+
+        <img mat-card-image
+        [src]="selectedHero | heroImage"
+        [alt]="selectedHero.superhero" >
+
+      </mat-card>
+    </div>
+
+
+    <div class="col-12 sm:col">
+      <mat-card>
+        <mat-card-content>
+          <p> <u>ID:</u> {{ selectedHero?.id }} </p>
+          <p> <u>Alter ego:</u> {{ selectedHero?.alter_ego }} </p>
+          <p> <u>First Appearance:</u> {{ selectedHero?.first_appearance }} </p>
+          <p> <u>Characters:</u> {{ selectedHero?.characters }} </p>
+          <p> <u>Publisher:</u> {{ selectedHero?.publisher }} </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+  </div>
 </div>
